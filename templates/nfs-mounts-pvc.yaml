@@ -1,0 +1,16 @@
+{{- if .Values.nfsMounts.enabled -}}
+{{- range .Values.nfsMounts.mounts }}
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ .name }}-pvc
+spec:
+  storageClassName: local-storage
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{ .capacity }}
+{{- end }}
+{{- end }}

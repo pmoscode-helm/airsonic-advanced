@@ -1,0 +1,23 @@
+{{- if .Values.nfsMounts.enabled -}}
+{{- $relnamespace := .Release.Namespace -}}
+{{- range .Values.nfsMounts.mounts }}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: {{ .name }}-pv
+spec:
+    storageClassName: local-storage
+    capacity:
+        storage: {{ .capacity }}
+    accessModes:
+        - ReadWriteMany
+    claimRef:
+        namespace: {{ $relnamespace }}
+        name: {{ .name }}-pvc
+    nfs:
+        server: {{ .nfsServer }}
+        path: {{ .exportPath | quote }}
+        readOnly: {{ .readOnly }}
+{{- end }}
+{{- end }}

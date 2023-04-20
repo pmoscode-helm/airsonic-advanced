@@ -1,0 +1,108 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "airsonic-advanced.fullname" . }}
+  labels:
+    {{- include "airsonic-advanced.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "airsonic-advanced.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "airsonic-advanced.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "airsonic-advanced.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: JAVA_OPTS
+              value: -Dserver.port=8080
+            - name: CONTEXT_PATH
+              value: {{ .Values.env.contextPath}}
+            - name: PUID
+              value: {{ .Values.env.puid }}
+            - name: PGID
+              value: {{ .Values.env.pgid }}
+            - name: TZ
+              value: {{ .Values.env.timezone }}
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 15
+            tcpSocket:
+              port: http
+          readinessProbe:
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            tcpSocket:
+              port: http
+          startupProbe:
+            tcpSocket:
+              port: http
+            failureThreshold: 30
+            periodSeconds: 10
+          volumeMounts:
+            {{- if .Values.nfsMounts.enabled -}}
+            {{- range .Values.nfsMounts.mounts }}
+            - name: {{ .name }}-pv
+              mountPath: {{ .mountPath | quote }}
+            {{- end }}
+            {{- end }}
+            - name: {{ include "airsonic-advanced.fullname" . }}-data
+              mountPath: "/config"
+              subPath: "config"
+            - name: {{ include "airsonic-advanced.fullname" . }}-data
+              mountPath: "/playlists"
+              subPath: "playlists"
+            - name: {{ include "airsonic-advanced.fullname" . }}-data
+              mountPath: "/podcasts"
+              subPath: "podcasts"
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+        {{- if .Values.nfsMounts.enabled -}}
+        {{- range .Values.nfsMounts.mounts }}
+        - name: {{ .name }}-pv
+          persistentVolumeClaim:
+            claimName: {{ .name }}-pvc
+        {{- end }}
+        {{- end }}
+        - name: {{ include "airsonic-advanced.fullname" . }}-data
+          {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ include "airsonic-advanced.fullname" . }}-data
+          {{- else }}
+          emptyDir: { }
+          {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
