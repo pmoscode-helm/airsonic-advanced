@@ -1,5 +1,5 @@
 # airsonic-advanced Helm Chart
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square)
+![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square)
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/airsonic-advanced)](https://artifacthub.io/packages/search?repo=airsonic-advanced)
 
 From https://github.com/airsonic-advanced/airsonic-advanced:
@@ -85,4 +85,4 @@ See [helm upgrade](https://helm.sh/docs/helm/helm_upgrade/) for command document
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| pmoscode | <info@pmoscode.de> |  |
+| pmoscode | <info@pmoscode.de> | <https://pmoscode.de> |
