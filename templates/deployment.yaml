@@ -35,13 +35,13 @@ spec:
             - name: JAVA_OPTS
               value: -Dserver.port=8080
             - name: CONTEXT_PATH
-              value: {{ .Values.env.contextPath}}
+              value: {{ .Values.env.contextPath }}
             - name: PUID
-              value: {{ .Values.env.puid }}
+              value: {{ .Values.env.puid | quote }}
             - name: PGID
-              value: {{ .Values.env.pgid }}
+              value: {{ .Values.env.pgid | quote }}
             - name: TZ
-              value: {{ .Values.env.timezone }}
+              value: {{ .Values.env.timezone | quote }}
           ports:
             - name: http
               containerPort: 8080
@@ -64,7 +64,7 @@ spec:
           volumeMounts:
             {{- if .Values.nfsMounts.enabled -}}
             {{- range .Values.nfsMounts.mounts }}
-            - name: {{ .name }}-pv
+            - name: {{ include "airsonic-advanced.fullname" $ }}-{{ .name }}-pv
               mountPath: {{ .mountPath | quote }}
             {{- end }}
             {{- end }}

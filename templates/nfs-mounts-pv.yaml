@@ -7,14 +7,14 @@ kind: PersistentVolume
 metadata:
     name: {{ include "airsonic-advanced.fullname" $ }}-{{ .name }}-pv
 spec:
-    storageClassName: local-storage
+    storageClassName: local-path
     capacity:
         storage: {{ .capacity }}
     accessModes:
-        - ReadWriteMany
+        - ReadWriteOnce
     claimRef:
         namespace: {{ $relnamespace }}
-        name: {{ .name }}-pvc
+        name: {{ include "airsonic-advanced.fullname" $ }}-{{ .name }}-pvc
     nfs:
         server: {{ .nfsServer }}
         path: {{ .exportPath | quote }}
