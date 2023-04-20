@@ -82,9 +82,9 @@ spec:
       volumes:
         {{- if .Values.nfsMounts.enabled -}}
         {{- range .Values.nfsMounts.mounts }}
-        - name: {{ .name }}-pv
+        - name: {{ include "airsonic-advanced.fullname" $ }}-{{ .name }}-pv
           persistentVolumeClaim:
-            claimName: {{ .name }}-pvc
+            claimName: {{ include "airsonic-advanced.fullname" $ }}-{{ .name }}-pvc
         {{- end }}
         {{- end }}
         - name: {{ include "airsonic-advanced.fullname" . }}-data

@@ -4,7 +4,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ .name }}-pvc
+  name: {{ include "airsonic-advanced.fullname" $ }}-{{ .name }}-pvc
 spec:
   storageClassName: local-storage
   accessModes:
