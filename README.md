@@ -40,46 +40,31 @@ See [helm upgrade](https://helm.sh/docs/helm/helm_upgrade/) for command document
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| affinity | object | `{}` |  |
-| env.contextPath | string | `"/"` |  |
-| env.pgid | int | `1000` |  |
-| env.puid | int | `1000` |  |
-| env.timezone | string | `"Etc/UTC"` |  |
-| fullnameOverride | string | `""` |  |
-| image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"linuxserver/airsonic-advanced"` |  |
-| image.tag | string | `"11.0.0"` |  |
-| imagePullSecrets | list | `[]` |  |
-| ingress.annotations | object | `{}` |  |
-| ingress.className | string | `""` |  |
-| ingress.enabled | bool | `false` |  |
-| ingress.hosts[0].host | string | `"chart-example.local"` |  |
-| ingress.hosts[0].paths[0].path | string | `"/"` |  |
-| ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
-| ingress.tls | list | `[]` |  |
-| nameOverride | string | `""` |  |
-| nfsMounts.enabled | bool | `false` |  |
-| nfsMounts.mounts[0].capacity | string | `"20Gi"` |  |
-| nfsMounts.mounts[0].exportPath | string | `"/music"` |  |
-| nfsMounts.mounts[0].mountPath | string | `"/music"` |  |
-| nfsMounts.mounts[0].name | string | `"music"` |  |
-| nfsMounts.mounts[0].nfsServer | string | `"xxx.xxx.xxx.xxx"` |  |
-| nfsMounts.mounts[0].readOnly | bool | `false` |  |
-| nodeSelector | object | `{}` |  |
-| persistence.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.enabled | bool | `false` |  |
-| persistence.size | string | `"8Gi"` |  |
-| persistence.storageClass | string | `""` |  |
-| podAnnotations | object | `{}` |  |
-| podSecurityContext | object | `{}` |  |
-| resources | object | `{}` |  |
-| securityContext | object | `{}` |  |
+| env.contextPath | string | `"/"` | URI path on tomcat |
+| env.pgid | int | `1000` | group id for container user |
+| env.puid | int | `1000` | user id for container |
+| env.timezone | string | `"Etc/UTC"` | timezone, airsonic-advanced will use |
+| image.pullPolicy | string | `"IfNotPresent"` | pull policy |
+| image.repository | string | `"linuxserver/airsonic-advanced"` | repository with airsonic-advanced image |
+| image.tag | string | `"11.0.0"` | current version of the image |
+| imagePullSecrets | list | `[]` | imagePullSecrets (not needed, if default image is used) |
+| ingress | object | `{"annotations":{},"className":"","enabled":false,"hosts":[{"host":"chart-example.local","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}],"tls":[]}` | Configure ingress |
+| nfsMounts.enabled | bool | `false` | enable mounting of nfs exports |
+| nfsMounts.mounts[0] | object | `{"capacity":"20Gi","exportPath":"/music","mountPath":"/music","name":"music","nfsServer":"xxx.xxx.xxx.xxx","readOnly":false}` | name of mount |
+| nfsMounts.mounts[0].capacity | string | `"20Gi"` | desired capacity (usually not needed for nfs) |
+| nfsMounts.mounts[0].exportPath | string | `"/music"` | export path on nfs server |
+| nfsMounts.mounts[0].mountPath | string | `"/music"` | mount path on container |
+| nfsMounts.mounts[0].nfsServer | string | `"xxx.xxx.xxx.xxx"` | ip or dns of nfs server |
+| nfsMounts.mounts[0].readOnly | bool | `false` | mark mount as readonly |
+| persistence.accessMode | string | `"ReadWriteOnce"` | accessMode |
+| persistence.enabled | bool | `false` | enable persistence when true |
+| persistence.size | string | `"8Gi"` | default storage size |
+| persistence.storageClass | string | `""` | actual storageClass |
 | service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |
-| serviceAccount.annotations | object | `{}` |  |
-| serviceAccount.create | bool | `true` |  |
-| serviceAccount.name | string | `""` |  |
-| tolerations | list | `[]` |  |
+| serviceAccount.annotations | object | `{}` | add annotations to serviceAccount |
+| serviceAccount.create | bool | `true` | enable serviceAccount |
+| serviceAccount.name | string | `""` | name of the serviceAccount (will be generated if empty) |
 
 ## Maintainers
 

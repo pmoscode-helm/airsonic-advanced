@@ -1,48 +1,72 @@
 image:
+  # -- repository with airsonic-advanced image
   repository: linuxserver/airsonic-advanced
+  # -- current version of the image
   tag: 11.0.0
+  # -- pull policy
   pullPolicy: IfNotPresent
 
+# -- imagePullSecrets (not needed, if default image is used)
 imagePullSecrets: []
+
+# -- @ignore
 nameOverride: ""
+# -- @ignore
 fullnameOverride: ""
 
 persistence:
+  # -- enable persistence when true
   enabled: false
+  # -- actual storageClass
   storageClass: ""
+  # -- default storage size
   size: 8Gi
+  # -- accessMode
   accessMode: ReadWriteOnce
 
 env:
+  # -- URI path on tomcat
   contextPath: /
+  # -- user id for container
   puid: 1000
+  # -- group id for container user
   pgid: 1000
+  # -- timezone, airsonic-advanced will use
   timezone: Etc/UTC
 
 nfsMounts:
+  # -- enable mounting of nfs exports
   enabled: false
   mounts:
+    # -- name of mount
     - name: music
+      # -- ip or dns of nfs server
       nfsServer: xxx.xxx.xxx.xxx
+      # -- export path on nfs server
       exportPath: "/music"
+      # -- mount path on container
       mountPath: "/music"
+      # -- desired capacity (usually not needed for nfs)
       capacity: 20Gi
+      # -- mark mount as readonly
       readOnly: false
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- enable serviceAccount
   create: true
-  # Annotations to add to the service account
+  # -- add annotations to serviceAccount
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- name of the serviceAccount (will be generated if empty)
   name: ""
 
+# -- @ignore
 podAnnotations: {}
 
+# -- @ignore
 podSecurityContext: {}
   # fsGroup: 2000
 
+# -- @ignore
 securityContext: {}
   # capabilities:
   #   drop:
@@ -55,6 +79,7 @@ service:
   type: ClusterIP
   port: 80
 
+# -- Configure ingress
 ingress:
   enabled: false
   className: ""
@@ -71,6 +96,7 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
+# -- @ignore
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
@@ -83,8 +109,11 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
+# -- @ignore
 nodeSelector: {}
 
+# -- @ignore
 tolerations: []
 
+# -- @ignore
 affinity: {}
