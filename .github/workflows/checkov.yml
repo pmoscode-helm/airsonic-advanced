@@ -27,11 +27,18 @@ jobs:
           version: v3.11.2
 
       - name: Checkov GitHub Action
-        uses: bridgecrewio/checkov-action@v12
+        uses: bridgecrewio/checkov-action@master
+        id: Bridgecrew
         with:
           soft_fail: true
           enable_secrets_scan_all_files: true
           api-key: ${{ secrets.BC_API_KEY }}
+
+      - name: Expose report
+        uses: actions/upload-artifact@v2
+        with:
+          name: SARIF results
+          path: results.sarif
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
