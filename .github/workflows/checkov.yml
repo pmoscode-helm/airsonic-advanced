@@ -30,6 +30,7 @@ jobs:
         uses: bridgecrewio/checkov-action@master
         id: Bridgecrew
         with:
+          framework: helm
           soft_fail: true
           enable_secrets_scan_all_files: true
           api-key: ${{ secrets.BC_API_KEY }}
