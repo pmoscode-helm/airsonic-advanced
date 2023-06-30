@@ -27,13 +27,13 @@ jobs:
           version: v3.11.2
 
       - name: Checkov GitHub Action
-        uses: bridgecrewio/checkov-action@master
-        id: Bridgecrew
+        uses: bridgecrewio/checkov-action@v12
         with:
+          directory: .
           framework: helm
+          quiet: true
           soft_fail: true
           enable_secrets_scan_all_files: true
-          api-key: ${{ secrets.BC_API_KEY }}
           output_format: cli,sarif
           output_file_path: console,results.sarif
 
