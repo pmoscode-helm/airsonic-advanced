@@ -5,7 +5,7 @@ keywords:
   - media streamer, music, audio
 type: application
 
-version: 0.1.1
+version: 0.2.0
 appVersion: "11.0.0"
 
 sources:
