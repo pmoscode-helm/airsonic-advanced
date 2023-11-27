@@ -21,3 +21,6 @@
 .idea/
 *.tmproj
 .vscode/
+.env-template
+.env
+.github
