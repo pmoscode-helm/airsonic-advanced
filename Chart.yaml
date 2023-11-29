@@ -1,17 +1,20 @@
 apiVersion: v2
+type: application
+
 name: airsonic-advanced
 description: Airsonic is a free, web-based media streamer, providing ubiquitous access to your music.
-keywords:
-  - media streamer, music, audio
-type: application
 
 version: 0.2.0
 appVersion: "11.0.0"
 
-sources:
-  - https://github.com/airsonic-advanced/airsonic-advanced
+keywords:
+  - media streamer, music, audio
+
 home: https://github.com/airsonic-advanced/airsonic-advanced
 icon: https://raw.githubusercontent.com/airsonic-advanced/airsonic-advanced/master/contrib/assets/logos/airsonic_dark_1400x400.svg
+sources:
+  - https://github.com/airsonic-advanced/airsonic-advanced
+
 maintainers:
   - name: pmoscode
     email: info@pmoscode.de
