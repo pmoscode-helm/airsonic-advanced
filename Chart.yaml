@@ -4,8 +4,8 @@ type: application
 name: airsonic-advanced
 description: Airsonic is a free, web-based media streamer, providing ubiquitous access to your music.
 
-version: 0.2.0
-appVersion: "11.0.0"
+version: 0.3.0
+appVersion: "11.1.4"
 
 keywords:
   - media streamer, music, audio
@@ -23,7 +23,7 @@ maintainers:
 annotations:
   artifacthub.io/images: |
     - name: airsonic-advanced
-      image: linuxserver/airsonic-advanced:11.0.0
+      image: linuxserver/airsonic-advanced:11.1.4
       platforms:
         - linux/amd64
   artifacthub.io/license: MIT

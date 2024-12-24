@@ -1,5 +1,5 @@
 # airsonic-advanced Helm Chart
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square)
+![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square)
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/airsonic-advanced)](https://artifacthub.io/packages/search?repo=airsonic-advanced)
 
 From https://github.com/airsonic-advanced/airsonic-advanced:
