@@ -18,6 +18,42 @@ entries:
           email: info@pmoscode.de
     apiVersion: v2
     appVersion: 11.1.4
+    created: "2024-12-25T15:40:06.772096+01:00"
+    description: Airsonic is a free, web-based media streamer, providing ubiquitous
+      access to your music.
+    digest: df5ed0f1aac57ba448a3940164b5c3ee9d9dcfe2a4251c560ea0e6463b63609c
+    home: https://github.com/airsonic-advanced/airsonic-advanced
+    icon: https://raw.githubusercontent.com/airsonic-advanced/airsonic-advanced/master/contrib/assets/logos/airsonic_dark_1400x400.svg
+    keywords:
+    - media streamer, music, audio
+    maintainers:
+    - email: info@pmoscode.de
+      name: pmoscode
+      url: https://pmoscode.de
+    name: airsonic-advanced
+    sources:
+    - https://github.com/airsonic-advanced/airsonic-advanced
+    type: application
+    urls:
+    - https://github.com/pmoscode-helm/airsonic-advanced/releases/download/airsonic-advanced-0.3.1/airsonic-advanced-0.3.1.tgz
+    version: 0.3.1
+  - annotations:
+      artifacthub.io/images: |
+        - name: airsonic-advanced
+          image: linuxserver/airsonic-advanced:11.1.4
+          platforms:
+            - linux/amd64
+      artifacthub.io/license: MIT
+      artifacthub.io/links: |
+        - name: Source
+          url: https://github.com/pmoscode-helm/airsonic-advanced
+        - name: support
+          url: https://github.com/pmoscode-helm/airsonic-advanced/issues
+      artifacthub.io/maintainers: |
+        - name: pmoscode
+          email: info@pmoscode.de
+    apiVersion: v2
+    appVersion: 11.1.4
     created: "2024-12-24T22:53:00.577687+01:00"
     description: Airsonic is a free, web-based media streamer, providing ubiquitous
       access to your music.
@@ -145,4 +181,4 @@ entries:
     urls:
     - https://github.com/pmoscode-helm/airsonic-advanced/releases/download/airsonic-advanced-0.1.0/airsonic-advanced-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-24T22:53:00.577706+01:00"
+generated: "2024-12-25T15:40:06.772125+01:00"
