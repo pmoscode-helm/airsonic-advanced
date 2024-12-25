@@ -46,7 +46,7 @@ See [helm upgrade](https://helm.sh/docs/helm/helm_upgrade/) for command document
 | env.timezone | string | `"Etc/UTC"` | timezone, airsonic-advanced will use |
 | image.pullPolicy | string | `"IfNotPresent"` | pull policy |
 | image.repository | string | `"linuxserver/airsonic-advanced"` | repository with airsonic-advanced image |
-| image.tag | string | `"11.0.0"` | current version of the image |
+| image.tag | string | `"11.1.4"` | current version of the image |
 | imagePullSecrets | list | `[]` | imagePullSecrets (not needed, if default image is used) |
 | ingress | object | `{"annotations":{},"className":"","enabled":false,"hosts":[{"host":"chart-example.local","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}],"tls":[]}` | Configure ingress |
 | nfsMounts.enabled | bool | `false` | enable mounting of nfs exports |

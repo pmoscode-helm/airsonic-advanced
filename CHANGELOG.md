@@ -8,7 +8,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 <!-- insertion marker -->
 ## Unreleased
 
-<small>[Compare with latest](https://github.com/pmoscode-helm/airsonic-advanced/compare/airsonic-advanced-0.2.0...HEAD)</small>
+<small>[Compare with latest](https://github.com/pmoscode-helm/airsonic-advanced/compare/airsonic-advanced-0.3.0...HEAD)</small>
+
+### Features
+
+- bump Docker image version to 11.1.4 ([0d162ed](https://github.com/pmoscode-helm/airsonic-advanced/commit/0d162ed475b566f42ebe5641ab9c6af7ee1f1f33) by Peter Motzko).
+
+<!-- insertion marker -->
+## [airsonic-advanced-0.3.0](https://github.com/pmoscode-helm/airsonic-advanced/releases/tag/airsonic-advanced-0.3.0) - 2024-10-09
+
+<small>[Compare with airsonic-advanced-0.2.0](https://github.com/pmoscode-helm/airsonic-advanced/compare/airsonic-advanced-0.2.0...airsonic-advanced-0.3.0)</small>
 
 ### Features
 
@@ -26,7 +35,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - add more files to .helmignore ([78e1e9e](https://github.com/pmoscode-helm/airsonic-advanced/commit/78e1e9e98de4a1f345c29f028f48b51407de7581) by Peter Motzko).
 
-<!-- insertion marker -->
 ## [airsonic-advanced-0.2.0](https://github.com/pmoscode-helm/airsonic-advanced/releases/tag/airsonic-advanced-0.2.0) - 2023-07-01
 
 <small>[Compare with airsonic-advanced-0.1.1](https://github.com/pmoscode-helm/airsonic-advanced/compare/airsonic-advanced-0.1.1...airsonic-advanced-0.2.0)</small>
