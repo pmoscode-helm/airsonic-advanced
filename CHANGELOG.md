@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - bump Docker image version to 11.1.4 ([0d162ed](https://github.com/pmoscode-helm/airsonic-advanced/commit/0d162ed475b566f42ebe5641ab9c6af7ee1f1f33) by Peter Motzko).
 
+### Bug Fixes
+
+- bump Docker image version to 11.1.4 (fixed values.yaml) ([084940f](https://github.com/pmoscode-helm/airsonic-advanced/commit/084940f5f98b0b2cda60d1b1243a23b52ce7f40c) by Peter Motzko).
+
 <!-- insertion marker -->
 ## [airsonic-advanced-0.3.0](https://github.com/pmoscode-helm/airsonic-advanced/releases/tag/airsonic-advanced-0.3.0) - 2024-10-09
 
