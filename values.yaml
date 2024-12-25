@@ -2,7 +2,7 @@ image:
   # -- repository with airsonic-advanced image
   repository: linuxserver/airsonic-advanced
   # -- current version of the image
-  tag: 11.1.4
+  tag:
   # -- pull policy
   pullPolicy: IfNotPresent
 
